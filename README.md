@@ -91,6 +91,19 @@ Checkout the
 [documentation](https://ml-explore.github.io/mlx/build/html/install.html#)
 for more information on building the C++ and Python APIs from source.
 
+### Development and Profiling
+
+For development, debugging, or profiling MLX applications, you may want to build
+MLX with debug symbols:
+
+```bash
+./build_with_debug_symbols.sh
+```
+
+This builds MLX with `RelWithDebInfo` (optimized + debug symbols), enabling
+detailed profiling with tools like Instruments, py-spy, or pyinstrument.
+See [`docs/DEBUG_BUILD.md`](docs/DEBUG_BUILD.md) for details.
+
 ## Contributing
 
 Check out the [contribution guidelines](https://github.com/ml-explore/mlx/tree/main/CONTRIBUTING.md) for more information

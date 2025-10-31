@@ -87,3 +87,7 @@ build/
 # Jetbrains
 .cache
 tags
+
+# Profiling outputs
+*.svg
+mlx_profile.*

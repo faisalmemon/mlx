@@ -64,7 +64,12 @@ class CMakeBuild(build_ext):
         extdir = ext_fullpath.parent.resolve()
 
         debug = int(os.environ.get("DEBUG", 0)) if self.debug is None else self.debug
-        cfg = "Debug" if debug else "Release"
+        # Support CMAKE_BUILD_TYPE environment variable for custom build types
+        build_type = os.environ.get("CMAKE_BUILD_TYPE", "")
+        if build_type in ["Debug", "Release", "RelWithDebInfo", "MinSizeRel"]:
+            cfg = build_type
+        else:
+            cfg = "Debug" if debug else "Release"
 
         build_temp = Path(self.build_temp) / ext.name
         if not build_temp.exists():
